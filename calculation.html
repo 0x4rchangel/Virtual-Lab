@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Base Conversion</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/Main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/Conversion.js"></script>
+  <script src="js/convertall.js"></script>
+  <script src="js/Main.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-dark text-white p-3">
+    <h2>Base Conversion</h2>
+  </div>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fnt">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="introduction.html">Introduction</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="demonstration.html">Demonstration</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link " href="calculation.html">Calculation and Simulation</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link " href="quiz.html">Quiz</a>
+      </li>
+    </ul>
+  </nav>
+  <h4 class="p-4">Calculation and Simulation</h4>
+  <div class="container p-2 text-center border" style="margin-top:30px">
+    <h5 class="p-2">Enter the number system, value and click Convert!</h5>
+    <div class="row">
+      <div class="col-sm-6">
+        <label class="p-2 col-sm-6">From:</label>
+        <select name="select1" class="btn-sm btn btn-info col-sm-6" id="select1">
+          <option value="1">Binary</option>
+          <option value="2">Decimal</option>
+          <option value="3">Octal</option>
+          <option value="4">Hexadecimal</option>
+        </select>
+        <input type="text" id="value" maxlength="10" onkeyup="this.value=this.value.toUpperCase();" class="col-sm-6 my-2"
+          placeholder="Enter the value here"></input>
+      </div>
+      <div class="col-sm-6">
+        <label class="p-2 col-sm-6">To:</label>
+        <select name="select2" class="btn-sm btn btn-info col-sm-6" id="select2">
+          <option value="1">Decimal</option>
+          <option value="1">Octal</option>
+          <option value="1">Hexadecimal</option>
+          <option value="2">Binary</option>
+          <option value="2">Octal</option>
+          <option value="2">Hexadecimal</option>
+          <option value="3">Binary</option>
+          <option value="3">Decimal</option>
+          <option value="3">Hexadecimal</option>
+          <option value="4">Binary</option>
+          <option value="4">Decimal</option>
+          <option value="4">Octal</option>
+        </select>
+        <input type="text" id="converted" class="col-sm-6 m-2" placeholder="Result will be displayed here"></input>
+
+      </div>
+    </div>
+
+    <div>
+      <button class="btn-success btn" id="btn1" type="button">Convert</button>
+      <button class="btn-warning btn" id="btn2" type="button">Clear</button>
+      <button class="btn-primary btn" id="btn3" type="button">Convert all</button>
+    </div>
+  </div>
+  <div class="container my-3 border" id=main>
+
+  </div>
+</body>
+
+</html>

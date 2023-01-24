@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <title>Base Conversion</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/Main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/atelier-forest-light.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script>hljs.highlightAll();</script>
+
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+
+    </head>
+
+    <div class="bg-dark text-white p-3">
+        <h2>Base Conversion</h2>
+    </div>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fnt">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="introduction.html">Introduction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="demonstration.html">Demonstration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="calculation.html">Calculation and Simulation</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link " href="quiz.html">Quiz</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <h4 class="p-4">Introduction</h4>
+        <div class="container border px-3 my-4">
+            <h5 class="my-3">Number System</h5>
+            <p>The number system is the system of naming or representing numbers.
+                Number systems are the technique to represent numbers in the computer system architecture.
+            </p>
+            <p>Number system conversion is the process of converting one number system to another. In other words
+                it is the conversion of number of one base to number of another base. Example : Binary to Decimal, Octal
+                to Hexadecimal etc.</p>
+            <p>There are four number systems:</p>
+            <ol>
+                <li>Binary Number system</li>
+                <li>Decimal Number system</li>
+                <li>Octal Number system</li>
+                <li>Hexadecimal (Hex) Number system</li>
+            </ol>
+            <p><b>Binary Number system</b></p>
+            <p>A Binary number system has only two digits i.e 0 and 1 by which all the digital system performs.
+                The base of binary number system is 2. Machine language is written only using binary codes.</p>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="h1">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c1" aria-expanded="true"
+                                aria-controls="c1">
+                                Binary to Decimal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c1" class="collapse" aria-labelledby="h1" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Take the lsb of the binary number.</li>
+                                <li>Multipy lsb with 2^0, likewise for previous lsb multiply with 2^1 and goes on.</li>
+                                <li>Add all the multiplied values to get the equivalant decimal number.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int binaryToDecimal(string n)
+{
+    string num = n;
+    int dec_value = 0;
+    int base = 1;
+    
+    int len = num.length();
+    for (int i = len - 1; i >= 0; i--) {
+        if (num[i] == '1')
+            dec_value += base;
+        base = base * 2;
+    }
+    
+    return dec_value;
+}                                
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="h2">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c2" aria-expanded="true"
+                                aria-controls="c2">
+                                Binary to Octal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c2" class="collapse" aria-labelledby="h2" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Convert the binary number to decimal number.</li>
+                                <li>Now convert this decimal value to octal number.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int binaryToDecimal(string n)
+{
+    string num = n;
+    int dec_value = 0;
+    int base = 1;
+    
+    int len = num.length();
+    for (int i = len - 1; i >= 0; i--) {
+        if (num[i] == '1')
+            dec_value += base;
+        base = base * 2;
+    }
+    
+    decToOctal(dec_value);
+}
+int decToOctal(int n)
+{
+    int octalNum[100];
+    int i = 0;
+    while (n != 0) {
+        octalNum[i] = n % 8;
+        n = n / 8;
+        i++;
+    }
+    for (int j = i - 1; j >= 0; j--){
+        printf("%d",octalNum[j]);
+    }
+} 
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="h3">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c3" aria-expanded="true"
+                                aria-controls="c3">
+                                Binary to Hexadecimal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c3" class="collapse" aria-labelledby="h3" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Start from the extreme right and group the binary digits in groups of four.</li>
+                                <li>Add zeros at the left of the binary number if the leftmost group has less than 4
+                                    binary digits.</li>
+                                <li>Represent each binary group by its hex equivalent number from the table.</li>
+                                <li>Concatenate all the hex digits together to get the converted answer. </li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int BinaryToHexadecimal(binary)
+{
+    int hexConstant[] = {0, 1, 10, 11, 100, 101, 110, 111, 1000, 
+                         1001, 1010, 1011, 1100, 1101, 1110, 1111};
+
+    long long binary, tempBinary;
+    char hex[20];
+    int index, i, digit;
+    
+    tempBinary = binary;
+    index = 0;
+    
+    while(tempBinary!=0)
+    {
+        digit = tempBinary % 10000;
+        for(i=0; i&lt;16; i++)
+        {
+            if(hexConstant[i] == digit)
+            {
+                if(i&lt;10)
+                {
+                    hex[index] = (char)(i + 48);
+                }
+                else
+                {
+                    hex[index] = (char)((i-10) + 65);
+                }
+
+                index++;
+                break;
+            }
+        }
+
+        tempBinary /= 10000;
+    }
+    hex[index] = '\0';
+    for(int i=strlen(hex)-1;i>=0;i--){
+        printf("%c",hex[i]);
+    }
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="my-3"><b>Decimal Number system</b></p>
+            <p>The Decimal number system uses the values from 0 to 9. The base of decimal system is represented by 10.
+            </p>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="h4">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c4" aria-expanded="true"
+                                aria-controls="c4">
+                                Decimal to Binary
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c4" class="collapse" aria-labelledby="h4" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Divide the given decimal number by 2.</li>
+                                <li>Note down the remainder and divide the quotient untill it becomes 0 or 1.</li>
+                                <li>Now write the remainders from bottom to top.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int decToBinary(int n)
+{
+    int binaryNum[32];
+ 
+    int i = 0;
+    while (n > 0) {
+        binaryNum[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+    for (int j = i - 1; j >= 0; j--){
+        printf("%d",binaryNum[j]);
+    }
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="h5">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c5" aria-expanded="true"
+                                aria-controls="c5">
+                                Decimal to octal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c5" class="collapse" aria-labelledby="h5" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>If the given decimal number is less than 8 the octal number is the same.</li>
+                                <li>If the decimal number is greater than 7 then divide the number by 8.</li>
+                                <li>Note the remainder, we get after division</li>
+                                <li>Repeat step 2 and 3 with the quotient till it is less than 8 and write the
+                                    remainders in reverse order.</li>
+
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int decToOctal(int n)
+{
+    int octalNum[100];
+    int i = 0;
+    while (n != 0) {
+        octalNum[i] = n % 8;
+        n = n / 8;
+        i++;
+    }
+    for (int j = i - 1; j >= 0; j--){
+        printf("%d",octalNum[j]);
+    }
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="h6">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c6" aria-expanded="true"
+                                aria-controls="c6">
+                                Decimal to Hexadecimal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c6" class="collapse" aria-labelledby="h6" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Divide the decimal number by 16 and note the remainder.</li>
+                                <li>Repeat step 1 with the quotient till it is 0.</li>
+                                <li>The hex value is the digit sequence of the remainders from the last to first</li>
+                                <li>Replace hex values on the result. i.e. 10 as A, 11 as B and so on.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+void decToHexa(int n)
+{
+    char hexaDeciNum[100];
+    int i = 0;
+    while (n != 0) {
+        int temp = 0;
+ 
+        temp = n % 16;
+ 
+        if (temp &lt; 10) {
+            hexaDeciNum[i] = temp + 48;
+            i++;
+        }
+        else {
+            hexaDeciNum[i] = temp + 55;
+            i++;
+        }
+ 
+        n = n / 16;
+    }
+ 
+    for (int j = i - 1; j >= 0; j--)
+        printf("%d",hexaDeciNum[j]);
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="my-3"><b>Hexadecimal Number system</b></p>
+            <p>A Hexadecimal number system has sixteen (16) alphanumeric values from 0 to 9 and A to F. Each digit of
+                hexadecimal number system can be represented as 4 digits known as "Hex digit" or "Nibble". The base of
+                hexadecimal number system is 16.</p>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="h7">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c7" aria-expanded="true"
+                                aria-controls="c7">
+                                Hexadecimal to Binary
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c7" class="collapse" aria-labelledby="h7" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Write down the hex number and represent each hex digit by its binary equivalent
+                                    number.</li>
+                                <li>Use 4 digits and add insignificant leading zeros if the binary number has less than
+                                    4 digits.</li>
+                                <li>Then concatenate all the digits together to get equivalant binary number.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+void hextobin(char hex[])  
+{  
+   int i=0;   
+   while(hex[i])  
+   {  
+       switch(hex[i])  
+       {  
+           case '0':  printf("0000");  break;  
+           case '1':  printf("0001");  break;  
+           case '2':  printf("0010");  break;  
+           case '3':  printf("0011");  break;  
+           case '4':  printf("0100");  break;  
+           case '5':  printf("0101");  break;  
+           case '6':  printf("0110");  break;  
+           case '7':  printf("0111");  break;  
+           case '8':  printf("1000");  break;  
+           case '9':  printf("1000");  break;  
+           case 'A':  printf("1010");  break;  case 'a':  printf("1010");  break;  
+           case 'B':  printf("1011");  break;  case 'b':  printf("1011");  break;  
+           case 'C':  printf("1100");  break;  case 'c':  printf("1100");  break;  
+           case 'D':  printf("1101");  break;  case 'd':  printf("1101");  break;  
+           case 'E':  printf("1110");  break;  case 'e':  printf("1110");  break;  
+           case 'F':  printf("1111");  break;  case 'f':  printf("1111");  break;  
+       }  
+       i++;  
+}}  
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="h8">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c8" aria-expanded="true"
+                                aria-controls="c8">
+                                Hexadecimal to octal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c8" class="collapse" aria-labelledby="h8" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Convert the hex value to its decimal form.</li>
+                                <li>Then convert the decimal value to Binary.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int hexadecimal_to_decimal(int x)
+{
+        int decimal_number, remainder, count = 0;
+        while(x > 0)
+        {
+            remainder = x % 10;
+            decimal_number = decimal_number + remainder * pow(16, count);
+            x = x / 10;
+            count++;
+        }
+        decToBinary(decimal_number);
+}
+int decToBinary(int n)
+{
+    int binaryNum[32];
+ 
+    int i = 0;
+    while (n > 0) {
+        binaryNum[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+    for (int j = i - 1; j >= 0; j--){
+        printf("%d",binaryNum[j]);
+    }
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="h9">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c9" aria-expanded="true"
+                                aria-controls="c9">
+                                Hexadecimal to Decimal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c9" class="collapse" aria-labelledby="h9" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Write the given Hex value.</li>
+                                <li>Multipy lsb with 16^0, likewise for previous lsb multiply with 16^1 and goes on.
+                                </li>
+                                <li>Add all the multiplied values to get the equivalant decimal number.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int hexadecimal_to_decimal(int x)
+{
+        int decimal_number, remainder, count = 0;
+        while(x > 0)
+        {
+            remainder = x % 10;
+            decimal_number = decimal_number + remainder * pow(16, count);
+            x = x / 10;
+            count++;
+        }
+        return decimal_number;
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="my-3"><b>Octal Number system</b></p>
+            <p>Octal number system has 8 digits from 0 to 7. The base of octal number system is 8.</p>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="h10">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c10" aria-expanded="true"
+                                aria-controls="c10">
+                                Octal to Binary
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c10" class="collapse" aria-labelledby="h10" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Convert the octal number to its decimal equivalent.</li>
+                                <li>Now convert this decimal value to binary.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int octalToDecimal(int n)
+{
+    int num = n;
+    int dec_value = 0;
+    
+    int base = 1;
+    
+    int temp = num;
+    while (temp) {
+    
+        int last_digit = temp % 10;
+        temp = temp / 10;
+        dec_value += last_digit * base;   
+        base = base * 8;
+    }  
+    decToBinary(dec_value);
+}
+int decToBinary(int n)
+{
+    int binaryNum[32];
+ 
+    int i = 0;
+    while (n > 0) {
+        binaryNum[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+    for (int j = i - 1; j >= 0; j--){
+        printf("%d",binaryNum[j]);
+    }
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="h11">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c11" aria-expanded="true"
+                                aria-controls="c11">
+                                Octal to Decimal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c11" class="collapse" aria-labelledby="h11" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Multiply each digit of octal number with its increasing power of 8 from right to
+                                    left.</li>
+                                <li>Add all the individual results provides the equivalent decimal number.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int octalToDecimal(int n)
+{
+    int num = n;
+    int dec_value = 0;
+    
+    int base = 1;
+    
+    int temp = num;
+    while (temp) {
+    
+        int last_digit = temp % 10;
+        temp = temp / 10;
+        dec_value += last_digit * base;   
+        base = base * 8;
+    }  
+    return dec_value;
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="h12">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#c12" aria-expanded="true"
+                                aria-controls="c12">
+                                Octal to Hexadecimal
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="c12" class="collapse" aria-labelledby="h12" data-parent="#accordion">
+                        <div class="card-body">
+                            <ol>
+                                <li>Convert the octal value to decimal number.</li>
+                                <li>Now convert the decimal value to hexadecimal value.</li>
+                            </ol>
+                            <b>C Code:</b>
+                            <pre><code class="c">
+int octalToDecimal(int n)
+{
+    int num = n;
+    int dec_value = 0;
+    
+    int base = 1;
+    
+    int temp = num;
+    while (temp) {
+    
+        int last_digit = temp % 10;
+        temp = temp / 10;
+        dec_value += last_digit * base;   
+        base = base * 8;
+    }  
+    decToHexa(dec_value);
+}
+void decToHexa(int n)
+{
+    char hexaDeciNum[100];
+    int i = 0;
+    while (n != 0) {
+        int temp = 0;
+ 
+        temp = n % 16;
+ 
+        if (temp &lt; 10) {
+            hexaDeciNum[i] = temp + 48;
+            i++;
+        }
+        else {
+            hexaDeciNum[i] = temp + 55;
+            i++;
+        }
+ 
+        n = n / 16;
+    }
+ 
+    for (int j = i - 1; j >= 0; j--)
+        printf("%d",hexaDeciNum[j]);
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

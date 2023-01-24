@@ -1,0 +1,44 @@
+    td{
+        padding:10px;
+    }
+    .bord{
+        border-left:2px solid;
+        border-bottom:2px solid;
+    }
+    #main > p{
+        font-size:x-large;
+        padding: 10px;
+    }
+    #main > li{
+        padding: 20px;
+        font-size:18px;
+    }
+    .res-p{
+        font-weight: bold;
+        font-size: larger !important;
+        text-align:center;
+    }
+    table{
+        font-weight: 400;
+        font-size: larger;
+        border-collapse: unset;
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
+    }
+    .question{
+        font-weight: 600;
+        font-size:large;
+      }
+label{
+	padding:20px;
+}
+#results{
+    padding:5px;
+}
+.fnt{
+    font-size: large;
+}
+.answers{
+    font-weight: 400;
+}
