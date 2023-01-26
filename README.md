@@ -5,7 +5,7 @@ This is a number base conversion (binary to decimal, hexadecimal, octal and vice
 > https://vituallab-by0xarchangel.netlify.app/
 
 - ## Introduction
-This page will give a rough introduction about different number base and the C code to convert one base to another and vice versa.
+  This page will give a rough introduction about different number base and the C code to convert one base to another and vice versa.
 
 - ## Demonstration
   This page contains GIFs that explain the usage of every button in the simulation.
