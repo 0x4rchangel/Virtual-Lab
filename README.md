@@ -11,9 +11,9 @@ This page will give a rough introduction about different number base and the C c
   This page contains GIFs that explain the usage of every button in the simulation.
 
 - ## Calculation and Simulation
-  The actual base conversion simulator. Enter the value in the input box and select the base of the value from the drop-down. Choose the one of the base to which it can be converted and click one of the buttons:  
+  The actual base conversion simulator. Enter the value in the input box and select the base of the value from the drop-down. Choose from one of the base to which it can be converted and click one of the buttons:  
     - Convert  
-     The steps involved in the conversion are also displayed. The app is made to be prone free while feeding input, so error alert may pop up with invalid input.    
+     The steps involved in the conversion are also displayed. The app is made to be error free while feeding input, so error alert may pop up with invalid input.    
     - Convert all  
         Just displays the value of one base converted to other three base.  
     - Clear  
@@ -22,3 +22,4 @@ This page will give a rough introduction about different number base and the C c
 - ## Quiz
   A base level quiz that tests your understanding of the number base and base conversion concepts.
 
+Thanks for the visit =)
